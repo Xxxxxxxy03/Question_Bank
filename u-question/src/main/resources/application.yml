@@ -1,0 +1,19 @@
+server:
+  port: 10003
+spring:
+  application:
+    name: question
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/uxue_qms?serverTimezone=GMT%2B8&charcaterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto

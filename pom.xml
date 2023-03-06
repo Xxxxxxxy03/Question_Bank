@@ -12,6 +12,10 @@
     <module>u-context</module>
     <module>u-member</module>
     <module>u-question</module>
+    <module>renren-fast</module>
+    <module>renren-generator</module>
+    <module>u-common</module>
+    <module>cloud-gateway</module>
 </modules>
 
 </project>

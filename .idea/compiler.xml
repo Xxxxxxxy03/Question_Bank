@@ -6,17 +6,34 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="u-common" />
+        <module name="u-question" />
         <module name="u-context" />
+        <module name="u-member" />
+        <module name="renren-fast" />
+        <module name="cloud-gateway" />
+        <module name="renren-generator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
+      <module name="cloud-gateway" target="1.8" />
       <module name="java-0802" target="1.5" />
+      <module name="renren-fast" target="1.8" />
+      <module name="renren-generator" target="1.8" />
+      <module name="u-common" target="1.8" />
       <module name="u-context" target="1.8" />
+      <module name="u-member" target="1.8" />
+      <module name="u-question" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-gateway" options="-parameters" />
+      <module name="renren-fast" options="-parameters" />
+      <module name="renren-generator" options="-parameters" />
       <module name="u-context" options="-parameters" />
+      <module name="u-member" options="-parameters" />
+      <module name="u-question" options="-parameters" />
     </option>
   </component>
 </project>
