@@ -8,6 +8,10 @@
     <artifactId>uxue</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
-
+<modules>
+    <module>u-context</module>
+    <module>u-member</module>
+    <module>u-question</module>
+</modules>
 
 </project>
