@@ -96,6 +96,7 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
 
                 //读取每行内容
                 Row row = sheet.getRow(i);
+
                 //创建题目实体对象
                 QuestionEntity questionEntity = new QuestionEntity();
                 //获取每行里面各个单元格
