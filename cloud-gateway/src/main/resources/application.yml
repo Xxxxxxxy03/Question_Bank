@@ -9,31 +9,82 @@ spring:
         server-addr: localhost:8848
     gateway:
       routes:
-        - id: cms-route
-          uri: lb://context
+        - id: weixin-login-ums-route # 提供微信客户端调用的，用户微服务路由
+          uri: http://localhost:10002
           predicates:
-            - Path=/context/**
+            - Path=/wx/member/member/login/**
           filters:
-            - RewritePath=/(?<segment>.*),/$\{segment}
+            - RewritePath=/wx/(?<segment>.*),/$\{segment}
+        - id: weixin-register-ums-route # 提供微信客户端调用的，用户微服务路由
+          uri: http://localhost:10002
+          predicates:
+            - Path=/wx/member/member/save/**
+          filters:
+            - RewritePath=/wx/(?<segment>.*),/$\{segment}
 
-        - id: qms-route
-          uri: lb://question
+        - id: weixin-test-ums-route # 提供微信客户端调用的，用户微服务路由
+          uri: http://localhost:10002
           predicates:
-            - Path=/question/**
+            - Path=/wx/member/member/refreshtoken/**
           filters:
-            - RewritePath=/(?<segment>.*),/$\{segment}
-
-        - id: ums-route
-          uri: lb://member
-          predicates:
-            - Path=/member/**
-          filters:
-            - RewritePath=/(?<segment>.*),/$\{segment}
+            - RewritePath=/wx/(?<segment>.*),/$\{segment}
+            - InnerFilter=true
 
         - id: renrenfast-route
-          uri: lb://renren-fast
+          uri: http://localhost:14000
           predicates:
-            - Path=/renren-fast/**
+            - Path=/api/thirdparty/**
           filters:
-            - RewritePath=/renren-fast/(?<segment>.*),/renren-fast/$\{segment}
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: cms-route
+          uri: http://localhost:10001
+          predicates:
+            - Path=/api/context/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: qms-route
+          uri: http://localhost:10003
+          predicates:
+            - Path=/api/question/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: ums-route
+          uri: http://localhost:10002
+          predicates:
+            - Path=/api/member/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: renrenfast-route
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+        - id: weixin-question-route # 提供微信客户端调用的，题库微服务路由
+          uri: http://localhost:10003
+          predicates:
+            - Path=/wx/question/type/findall,/wx/question/question/list**,/wx/question/question/info/**
+          filters:
+            - RewritePath=/wx/(?<segment>.*),/$\{segment}
+            - InnerFilter=true #针对微信访问接口，验证令牌
+        - id: weixin-context-route # 提供微信客户端调用的，广告微服务路由
+          uri: http://localhost:10001
+          predicates:
+            - Path=/wx/context/banner/list**
+          filters:
+            - RewritePath=/wx/(?<segment>.*),/$\{segment}
+            - InnerFilter=true #针对微信访问接口，验证令牌
+
+
+
+#      globalcors:  #跨域配置
+#        cors-configurations:
+#          '[/**]':
+#            allowCredentials: true #允许跨域读取cookie
+#            allowedOrigins: "*"  #允许发出跨域请求主机域名 * 任意主机
+#            allowedMethods: "*"  #请求方法
+#            allowedHeaders: "*"  #允许发出跨域的请求头
 

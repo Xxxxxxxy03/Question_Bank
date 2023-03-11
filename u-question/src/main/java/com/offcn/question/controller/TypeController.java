@@ -1,15 +1,12 @@
 package com.offcn.question.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.offcn.question.entity.TypeEntity;
 import com.offcn.question.service.TypeService;
@@ -87,4 +84,10 @@ public class TypeController {
         return R.ok();
     }
 
+    //获取全部分类
+    @GetMapping("/findall")
+    public R findAll(){
+        List<TypeEntity> all = typeService.findAll();
+        return R.ok("获取全部分类数据成功").put("data",all);
+    }
 }

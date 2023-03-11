@@ -3,12 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/cloud-gateway/cloud-gateway.iml" filepath="$PROJECT_DIR$/cloud-gateway/cloud-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/excel-poi/excel-poi.iml" filepath="$PROJECT_DIR$/excel-poi/excel-poi.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-0802.iml" filepath="$PROJECT_DIR$/.idea/java-0802.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-fast/renren-fast.iml" filepath="$PROJECT_DIR$/renren-fast/renren-fast.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-generator/renren-generator.iml" filepath="$PROJECT_DIR$/renren-generator/renren-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/u-common/u-common.iml" filepath="$PROJECT_DIR$/u-common/u-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/u-context/u-context.iml" filepath="$PROJECT_DIR$/u-context/u-context.iml" />
       <module fileurl="file://$PROJECT_DIR$/u-member/u-member.iml" filepath="$PROJECT_DIR$/u-member/u-member.iml" />
+      <module fileurl="file://$PROJECT_DIR$/u-oss/u-oss.iml" filepath="$PROJECT_DIR$/u-oss/u-oss.iml" />
       <module fileurl="file://$PROJECT_DIR$/u-question/u-question.iml" filepath="$PROJECT_DIR$/u-question/u-question.iml" />
     </modules>
   </component>

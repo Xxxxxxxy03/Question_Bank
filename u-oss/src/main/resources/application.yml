@@ -1,0 +1,15 @@
+server:
+  port: 14000
+spring:
+  application:
+    name: oss
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
+    alicloud:
+      access-key: LTAI5tL2SfXwaHL7UB5mt4et
+      secret-key: dRhRpb3X9xuZ0vQOSuph7CbntYKTuo
+      oss:
+        endpoint: oss-cn-beijing.aliyuncs.com
+        bucket: xy-2023

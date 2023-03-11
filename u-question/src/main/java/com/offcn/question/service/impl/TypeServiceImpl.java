@@ -1,6 +1,8 @@
 package com.offcn.question.service.impl;
 
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -18,12 +20,29 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
+        //获取查询关键字
+        String key = (String) params.get("key");
+
+        //创建查询对象
+        QueryWrapper<TypeEntity> qw = new QueryWrapper<>();
+
+        //设置查询条件
+        if(key != null){
+            qw.eq("id",key).or().like("type",key);
+        }
+
         IPage<TypeEntity> page = this.page(
                 new Query<TypeEntity>().getPage(params),
-                new QueryWrapper<TypeEntity>()
+                qw
         );
 
         return new PageUtils(page);
+    }
+
+    //获取全部分类
+    @Override
+    public List<TypeEntity> findAll() {
+        return this.list();
     }
 
 }

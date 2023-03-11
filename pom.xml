@@ -16,6 +16,8 @@
     <module>renren-generator</module>
     <module>u-common</module>
     <module>cloud-gateway</module>
+    <module>excel-poi</module>
+    <module>u-oss</module>
 </modules>
 
 </project>

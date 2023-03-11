@@ -40,6 +40,17 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.offcn</groupId>
+            <artifactId>u-common</artifactId>
+            <version>1.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>mybatis-plus-boot-starter</artifactId>
+                    <groupId>com.baomidou</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

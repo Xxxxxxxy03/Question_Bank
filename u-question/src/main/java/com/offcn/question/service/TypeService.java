@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.offcn.common.utils.PageUtils;
 import com.offcn.question.entity.TypeEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +17,8 @@ import java.util.Map;
 public interface TypeService extends IService<TypeEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    //获取全部分类
+    List<TypeEntity> findAll();
 }
 
